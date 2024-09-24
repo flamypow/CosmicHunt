@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 582ec017154b43a46b5b2976f33c0dd5
+  productGUID: fed01fa408f6b0441996d0ad58fae878
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: SpaceGameGym
+  productName: CosmicHunt
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -630,14 +630,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: SpaceGameGym
+  metroPackageName: CosmicHunt
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: SpaceGameGym
+  metroApplicationDescription: CosmicHunt
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -706,10 +706,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3966e482-bc69-451a-b0c6-9f1b825f255b
+  cloudProjectId: 90c8cafc-b2dc-43f5-9d46-1b34d2242988
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SpaceGameGym
+  projectName: CosmicHunt
   organizationId: unity_ade58b8b7476771c7506
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
