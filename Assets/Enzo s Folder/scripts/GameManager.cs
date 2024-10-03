@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()//keep spawning enemies
     {
         InvokeRepeating(nameof(SpawnEnemy), 0f, enemySpawnInterval);
+        SoundManager.instance.PlayMusic(0);
     }
     void SpawnEnemy()
     {
@@ -40,21 +41,25 @@ public class GameManager : MonoBehaviour
         if(currentEnemyCount < 1)
         {
             int enemiesSpawn = 1;
-            if (enemiesDestroyed >= spawnIncreaseOne)
-            {
-                enemiesSpawn = 2;
-            }
-            else if (enemiesDestroyed >= spawnIncreaseTwo)
+            if (enemiesDestroyed >= spawnIncreaseTwo)
             {
                 enemiesSpawn = 3;
             }
-            for (int i = 0; i< enemiesSpawn; i++)
+            else if (enemiesDestroyed >= spawnIncreaseOne)
             {
-                int randomList = Random.Range(0,enemySpawnPoints.Length);
-                Transform spawnPoint = enemySpawnPoints[randomList];
-                Instantiate (enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                currentEnemyCount++;
+                enemiesSpawn = 2;
             }
+            List<Transform> FreeSpawns = new List<Transform>(enemySpawnPoints);
+
+            for (int i = 0; i < enemiesSpawn && FreeSpawns.Count > 0; i++)
+            {
+                int randomList = Random.Range(0,FreeSpawns.Count);
+                Transform spawnPoint = FreeSpawns[randomList];
+                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                currentEnemyCount++;
+                FreeSpawns.RemoveAt(randomList);
+            }
+            
         }
 
     }
@@ -73,6 +78,7 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(bossPrefab, bossSpawnPoint.position, bossSpawnPoint.rotation);
             bossSpawned = true;
+            SoundManager.instance.PlayMusic(1);
         }
     }
 }

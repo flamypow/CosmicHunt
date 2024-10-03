@@ -51,7 +51,8 @@ public class EnemyController : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if(shootTimer <= 0)
         {
-            if(PlayerToTheLeft)
+            
+            if (PlayerToTheLeft)
             {
                 Instantiate(laserPrefab, laserSpawnPointLeft.position, laserSpawnPointLeft.rotation);
             }
@@ -62,6 +63,7 @@ public class EnemyController : MonoBehaviour
             }
             
             shootTimer = shootInterval;
+            SoundManager.instance.PlaySound(1);
         }
     }
 

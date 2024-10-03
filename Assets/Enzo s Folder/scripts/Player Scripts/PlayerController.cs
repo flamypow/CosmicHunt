@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
     private float LastFramePos;
     private bool MovingRight;
+    public float shootDelay = 0.5f;
+    private float timeSinceShot = 0f;
 
     void Start()
     {
@@ -28,9 +30,14 @@ public class PlayerController : MonoBehaviour
             MovingRight = false;
         }
         LastFramePos = gameObject.transform.position.x;
-        if (Input.GetKeyDown(KeyCode.Space))
+        timeSinceShot += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && timeSinceShot >= shootDelay)
         {
+            
             Shoot();
+            timeSinceShot = 0f;
+            SoundManager.instance.PlaySound(0);
+
         }
     }
 

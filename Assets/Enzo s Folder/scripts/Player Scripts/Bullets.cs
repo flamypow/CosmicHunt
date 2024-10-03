@@ -8,6 +8,7 @@ public class Bullets : MonoBehaviour
 
     private void Update()
     {
+
         transform.Translate(Vector3.right*speed*Time.deltaTime);
         Destroy(gameObject, 1f);
     }
@@ -15,8 +16,10 @@ public class Bullets : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            SoundManager.instance.PlaySound(4);
             Destroy(other.gameObject);
             Destroy(gameObject);
+
         }
     }
 }

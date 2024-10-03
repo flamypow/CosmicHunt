@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 462766109331211139}
   - component: {fileID: 6913441546068739710}
   - component: {fileID: 831470748244144709}
+  - component: {fileID: 4273074496794530036}
   m_Layer: 0
   m_Name: BossProjectile
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08002947, y: 0}
+  m_Offset: {x: -0.009308338, y: 0.0044668913}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -104,8 +105,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21910635, y: 0.0590474}
+  m_Size: {x: 1.0767491, y: 1.0685644}
   m_EdgeRadius: 0
+--- !u!114 &4273074496794530036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452759229339784876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a141881d1be693b488d5abb647a81b9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  direction: {x: 0, y: 0}
+  timeUntilDestroyed: 2
 --- !u!1 &8725117112290569354
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,8 +148,8 @@ Transform:
   m_GameObject: {fileID: 8725117112290569354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0801, y: 0, z: 0}
-  m_LocalScale: {x: 0.21013, y: 0.05, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 462766109331211139}
@@ -176,8 +192,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -510866545
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.6415094, g: 0, b: 0.6392158, a: 1}
