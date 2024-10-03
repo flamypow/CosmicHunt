@@ -13,20 +13,20 @@ public class PointsManager : MonoBehaviour
 
     void Start()
     {
-        // Initialize the points display
-        UpdatePointsText();
+      UpdatePointsText();
     }
 
     // Method to add points
     public void AddPoints(int pointsToAdd)
     {
         points += pointsToAdd;
+        GameManager.playerPoints =points;
         UpdatePointsText();
     }
 
     // Updates the points display on the screen
     private void UpdatePointsText()
     {
-        pointsText.text = "Points " + points;
+        pointsText.text = points.ToString();
     }
 }
