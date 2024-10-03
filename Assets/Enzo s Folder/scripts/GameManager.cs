@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private int currentEnemyCount = 0;
     private bool bossSpawned = false;
 
+    public static int playerPoints = 0;
     void Awake() //singleton to make the manager "accessible"
     {
         if(Instance == null)
