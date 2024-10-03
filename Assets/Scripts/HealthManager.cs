@@ -15,8 +15,8 @@ public class HealthManager : MonoBehaviour
     // Reference to the player GameObject
     [SerializeField] private GameObject player;
 
-    // Time to wait before restarting the level (in seconds)
-    [SerializeField] private float restartDelay = 2f;
+    // Referene to the DeathManager script
+    [SerializeField] private DeathManager deathManager;
 
     void Start()
     {
@@ -63,14 +63,7 @@ public class HealthManager : MonoBehaviour
         // Hide the player object
         player.SetActive(false);
 
-        // Restart the level after a delay
-        Invoke("RestartLevel", restartDelay);
-    }
-
-    // Method to restart the level
-    void RestartLevel()
-    {
-        // Reload current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Calls the death manager to handle the game over screen and returning to the main menu
+        deathManager.HandlePlayerDeath();
     }
 }
