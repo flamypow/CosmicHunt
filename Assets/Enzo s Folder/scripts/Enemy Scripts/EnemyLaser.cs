@@ -16,6 +16,16 @@ public class EnemyLaser : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Get the HealthManager component from the player
+            HealthManager healthManager = other.GetComponent<HealthManager>();
+
+            if (healthManager != null)
+            {
+                // Call the TakeDamage method to reduce health
+                healthManager.TakeDamage();
+            }
+            
+            
             //Destroy(other.gameObject);
             Destroy(gameObject);
         }

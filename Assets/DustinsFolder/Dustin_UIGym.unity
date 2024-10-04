@@ -166,10 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91285bc25abbe6b4b8f40373353a5b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathScreen: {fileID: 1104471305}
-  deathText: {fileID: 1071540730}
-  pointsText: {fileID: 1031931885}
   returnToMenuDelay: 3
+  deathSceneName: DeathScreen
 --- !u!1 &122679154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,7 +1406,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   bullet: {fileID: 0}
-  bulletspawn: {fileID: 0}
+  bulletspawnRight: {fileID: 0}
+  bulletspawnLeft: {fileID: 0}
+  shootDelay: 0.5
 --- !u!1001 &1745306459
 PrefabInstance:
   m_ObjectHideFlags: 0

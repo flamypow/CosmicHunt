@@ -18,5 +18,23 @@ public class BossProjectile : MonoBehaviour
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    
+    // Detect collision with the player
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the projectile his the player
+        if (other.CompareTag("Player"))
+        {
+            // Get the HealthManager component from the player
+            HealthManager healthManager = other.GetComponent<HealthManager>();
+
+            if (healthManager != null)
+            {
+                // Call TakeDamage to reduce the player's health
+                healthManager.TakeDamage();
+            }
+
+            // Destroy the boss projectile after hitting the player
+            Destroy(gameObject);
+        }
+    }
 }

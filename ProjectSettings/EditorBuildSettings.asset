@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DustinsFolder/WinScreen.unity
     guid: a26d58ed11277814eac166e926a3a7b1
+  - enabled: 1
+    path: Assets/DustinsFolder/DeathScreen.unity
+    guid: ce552f3969315b44cb0638517e82bfea
+  - enabled: 1
+    path: Assets/Enzo s Folder/EnzoScene.unity
+    guid: 533072b4fa34e224390df4ed09bb80b1
   m_configObjects: {}

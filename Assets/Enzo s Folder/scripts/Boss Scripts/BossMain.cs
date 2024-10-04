@@ -91,7 +91,7 @@ public class BossMain : MonoBehaviour
    
     void BossDeath()
     {
-        
+        GameManager.Instance.BossDefeated();
         StartCoroutine(DestroyBossAfter(3f));
         //Debug.Log("boss killed"); //test
     }
@@ -101,5 +101,8 @@ public class BossMain : MonoBehaviour
         yield return new WaitForSeconds(delay);
         SoundManager.instance.PlaySound(6);
         Destroy(gameObject);
+
+        // Trigger the win screen after the boss is destroyed
+        GameManager.Instance.PlayerWins();
     }
 }
