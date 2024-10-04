@@ -13,9 +13,11 @@ public class BossSprite : MonoBehaviour
     }
 
     public void ChangeSprite(BossState bossState)
-    { 
-        if(bossState==BossState.Undamaged)
+    {
+        Debug.Log("working");
+        if (bossState==BossState.Undamaged)
         {
+            Debug.Log("working too");
             bossShip.sprite = bossScriptObj.BossUndamaged;
         
         }

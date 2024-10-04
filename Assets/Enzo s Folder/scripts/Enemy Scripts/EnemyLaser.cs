@@ -23,6 +23,7 @@ public class EnemyLaser : MonoBehaviour
             {
                 // Call the TakeDamage method to reduce health
                 healthManager.TakeDamage();
+                SoundManager.instance.PlaySound(2);
             }
             
             

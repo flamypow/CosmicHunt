@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             Debug.Log("GameManager initialized");
 
             // Load points when the scene starts or game resets
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
         // Load the win screen
         SceneManager.LoadScene(winScreenSceneName);
+        
     }
 
     // Call this method when the game scene starts to reset or carry over points

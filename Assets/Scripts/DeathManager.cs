@@ -41,6 +41,7 @@ public class DeathManager : MonoBehaviour
 
             // Load the death screen
             SceneManager.LoadScene(deathSceneName);
+            SoundManager.instance.PlaySound(9);
 
             // Start the coroutine to wait before returning to the main menu
             StartCoroutine(ReturnToMainMenuAfterDelay());

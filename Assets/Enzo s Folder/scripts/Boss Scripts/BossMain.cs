@@ -44,6 +44,8 @@ public class BossMain : MonoBehaviour
             else if (currentBossState == BossState.DamageLeft)
             {
                 currentBossState = BossState.Damaged;
+                bossSprite.ChangeSprite(currentBossState);
+
             }
             else {
 
@@ -62,6 +64,7 @@ public class BossMain : MonoBehaviour
             else if (currentBossState == BossState.DamageRight)
             {
                 currentBossState = BossState.Damaged;
+                bossSprite.ChangeSprite(currentBossState);
             }
             else if (currentBossState == BossState.DamageLeft)
             {
@@ -104,5 +107,19 @@ public class BossMain : MonoBehaviour
 
         // Trigger the win screen after the boss is destroyed
         GameManager.Instance.PlayerWins();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            HealthManager healthManager = other.GetComponent<HealthManager>();
+            if (healthManager != null)
+            {
+                // Call TakeDamage to reduce the player's health
+                healthManager.TakeDamage();
+                SoundManager.instance.PlaySound(2);
+            }
+        }
     }
 }

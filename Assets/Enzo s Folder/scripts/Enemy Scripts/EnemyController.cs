@@ -76,4 +76,20 @@ public class EnemyController : MonoBehaviour
             GameManager.Instance.EnemyDestroyed();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Get the HealthManager component from the player
+            HealthManager healthManager = other.GetComponent<HealthManager>();
+
+            if (healthManager != null)
+            {
+                // Call TakeDamage to reduce the player's health
+                healthManager.TakeDamage();
+                SoundManager.instance.PlaySound(2);
+            }
+        }
+    }
 }

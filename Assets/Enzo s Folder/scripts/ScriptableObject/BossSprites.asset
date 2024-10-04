@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d1eb0dc1d84e0418a11ddd760c62fa, type: 3}
   m_Name: BossSprites
   m_EditorClassIdentifier: 
-  BossUndamaged: []
-  BossDamagedRight: []
-  BossDamagedLeft: []
-  BossDamaged: []
+  BossUndamaged: {fileID: 21300000, guid: 0ef9b44a0436f71409f73b75466c5e9f, type: 3}
+  BossDamagedRight: {fileID: 21300000, guid: 492ee293de1b9f14eb1f4ce4128da8da, type: 3}
+  BossDamagedLeft: {fileID: 21300000, guid: a8ab028a61f42d840b4ef60764acf180, type: 3}
+  BossDamaged: {fileID: 21300000, guid: bba9619ac99b4c944b66e25e169da98f, type: 3}

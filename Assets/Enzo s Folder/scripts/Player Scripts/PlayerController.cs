@@ -24,10 +24,14 @@ public class PlayerController : MonoBehaviour
         if(LastFramePos < gameObject.transform.position.x)
         {
             MovingRight = true;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+
         }
         else if(LastFramePos > gameObject.transform.position.x)
         {
             MovingRight = false;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1f, transform.localScale.y, transform.localScale.z);
         }
         LastFramePos = gameObject.transform.position.x;
         timeSinceShot += Time.deltaTime;
@@ -48,6 +52,7 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(moveX,MoveY)*moveSpeed*Time.deltaTime;
         transform.Translate(movement);
         CameraClamp();
+
        
     }
     void Shoot()

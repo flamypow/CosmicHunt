@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BossParts : MonoBehaviour
 {
@@ -39,9 +40,10 @@ public class BossParts : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) //reads damage from player bullet
     {
-        Debug.Log("Hit");
+        //Debug.Log("Hit");
         if (other.gameObject.CompareTag("PlayerShot"))
         {
+            SoundManager.instance.PlaySound(7);
             GetComponent<BossParts>().TakeDamage(1);
             Destroy(other.gameObject);
         }
@@ -71,30 +73,33 @@ public class BossParts : MonoBehaviour
     {
         int projectileNumber = 5;
         float spreadAngle = 60f;
-        float startAngle = -spreadAngle / 2;
-        float angleStep = spreadAngle / (projectileNumber - 1);
-
-        for (int i = 0; i < projectileNumber; i++)
+        float halfSpreadAngle = spreadAngle/2;
+        Vector2 playerDirection = (player.transform.position - projectileSpawn.position).normalized;
+        float playerAngle = Mathf.Atan2(playerDirection.y, playerDirection.x) * Mathf.Rad2Deg;
+        
+        for (int i = 0; i < projectileNumber; i++) //uses player direction to calculate angle of the spread shot
         {
-            float angle = startAngle + (i * angleStep);
-            Quaternion rotation = Quaternion.Euler(0, 0, angle);
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation * rotation);
+            float angleOffset = (i - (projectileNumber - 1)/2f)*(spreadAngle/(projectileNumber-1));
+            float currentAngle = playerAngle + angleOffset;
+
+            Vector2 direction = Quaternion.Euler(0, 0, currentAngle) * Vector2.right;
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.Euler(0,0, currentAngle));
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-            rb.velocity = projectile.transform.up * projectileSpeed;
+            rb.velocity = direction * projectileSpeed;
             
         }
     }
 
     void ShootStraightProjectile() //basic shot logic
     {
-        if(player != null)
+        
+        if (player != null)
         {
             //have the simple projectile aimed at the player
             Vector2 direction = (player.transform.position - projectileSpawn.position).normalized;
+            
             //test calculate angle to the player
-            float angle = Mathf.Atan2(direction.y, direction.x)* Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.Euler(0, 0, angle - 90);
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, rotation);
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             Rigidbody2D rb = projectile.GetComponent <Rigidbody2D>();
             rb.velocity = direction * projectileSpeed;  
         }
